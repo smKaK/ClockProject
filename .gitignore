@@ -3,9 +3,16 @@
 
 # Local tooling caches
 .cache/
+.clangd
+compile_commands.json
+
+# STM32CubeIDE machine-specific files
+*.launch
+.osx.project
 
 # STM32CubeIDE / Eclipse metadata
 .metadata/
+.settings/
 
 # Build output directories
 Debug/

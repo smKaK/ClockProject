@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,7 +57,11 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+int __io_putchar(int ch)
+{
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
 /* USER CODE END 0 */
 
 /**
@@ -90,7 +95,8 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  printf("\r\n=== TheClock started ===\r\n");
+  printf("USART1 @ 115200 baud, SYSCLK = %u Hz\r\n", (unsigned)HAL_RCC_GetSysClockFreq());
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -100,6 +106,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    printf("tick: %u ms\r\n", (unsigned)HAL_GetTick());
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
