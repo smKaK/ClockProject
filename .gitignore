@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Local tooling caches
+.cache/
+
+# STM32CubeIDE / Eclipse metadata
+.metadata/
+
+# Build output directories
+Debug/
+Release/
+build/
+cmake-build-*/
+
+# Object and binary artifacts
+*.o
+*.obj
+*.d
+*.su
+*.elf
+*.axf
+*.map
+*.bin
+*.hex
+*.list
+
